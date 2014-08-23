@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="constatApp" ng-controller="swipeCtrl" ng-swipe-left="getNextLoc()" ng-swipe-right="getPrevLoc()">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+        <script type="text/javascript" src="js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="js/lib/angular.min.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/lib/angular-resource.min.js"></script>
+        <script type="text/javascript" src="js/lib/angular-animate.min.js"></script>
+        <script type="text/javascript" src="js/lib/angular-touch.min.js"></script>
+        <script type="text/javascript" src="js/lib/angular-route.min.js"></script>
+        <script type="text/javascript" src="js/lib/kinetic-v5.1.0.min.js"></script>
+        <script type="text/javascript" src="js/lib/hammer.min.js"></script>
+        <script type="text/javascript" src="js/lib/leaflet.min.js"></script>
+        <script type="text/javascript" src="js/lib/toasts.js"></script>
+
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/controllers.js"></script>
+        <script type="text/javascript" src="js/directives.js"></script>
+        <script type="text/javascript" src="js/filters.js"></script>
+        <script type="text/javascript" src="js/services.js"></script>
+        <title>Constat d'accident</title>
+    </head>
+    <body>
+        <header class="out" ng-controller="mainCtrl">
+            <div class="contextMenu" ng-class="{active: show==true}" ng-click="show = !show;">
+                <ul ng-show="show" class="menuAnim">
+                    <li><a ng-click="setTransition()" href="#/menu">Home</a></li>
+                    <li><a ng-click="setTransition()" href="#/declaration">Déclaration</a></li>
+                    <li><a ng-click="setTransition()" href="#/profil">Profil</a></li>
+                    <li><a ng-click="setTransition()" href="#/assistance">Assistance</a></li>
+                    <li><a href="" ng-click="toggleAbout()">About</a></li>
+                </ul>
+            </div>
+            <div class="overlay" ng-click="toggleAbout()">
+                <div>
+                    <h3>A propos de l'application</h3>
+                    <p>Bienvenue sur l'application Constat d'Accident.</p>
+                    <p>Avec cette application vous pouvez reporter un accident directement à votre assureur.</p>
+                    <p>Attention cette application ne remplace EN AUCUNS CAS la déclaration papier, qui elle seule possède une valeur légale aux yeux de la loi !</p>
+                    <p><a href"#">http://damien-roelens.be</a></p>
+                    <img src="" alt="Logo créateur" />
+                    <!-- TODO modal -->
+                </div>
+            </div>
+            <div class="in tpi lpi">
+            <h1>
+                {{apptitle}}
+                <span class="prev" ng-show="prevButton" ng-click="prevView()"><a href="{{lop}}" ng-click="saveUser()">Précédent</a></span>
+                <span class="next" ng-show="nextButton" ng-click="nextView()"><a href="{{lo}}" ng-click="saveUser()">Suivant</a></span>
+            </h1>
+            </div>
+        </header>
+
+        <div class="view {{transite}}" ng-animate ng-view>     
+        </div>
+    </body>
+</html>

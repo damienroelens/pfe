@@ -1,0 +1,38 @@
+<div class="sousmenu">
+	<a href="" ng-init="showWhat = true" ng-class="{actif : showWhat == true}" ng-click="showWhat = true">Numéros</a>
+	<a href="" ng-class="{actif : showWhat == false}" ng-click="showWhat = false">Emails</a>
+</div>
+<div class="bg out">
+	<div class="bgform in tpin ltin"  ng-show="showWhat">
+
+		<h3>Numéros d'assistances</h3>
+		<a class="phone sos" ng-repeat="urgence in urgences" href="tel:{{urgence.tel}}">
+			<p class="phoneName">{{urgence.nom}}</p>
+			<p class="phoneNum">{{urgence.tel}}</p>
+		</a>
+		<a class="phone" ng-repeat="num in numeros" href="tel:{{num.tel}}">
+			<p class="phoneName">{{num.nom}}</p>
+			<p class="phoneNum">{{num.tel}}</p>
+		</a>
+	</div>
+</div>
+<div class="bg out">
+	<div class="bgform in tpin ltin" ng-show="!showWhat">
+		<h3>Envoyer un email</h3>
+		<form action="">
+			<label for="select">
+				<select name="place" id="select" ng-selected="" ng-model="assurmail" ng-options="assurance.nom group by assurance.group for assurance in assurances">
+					<option disabled value="">--Choisissez le destinataire--</option>
+				</select>
+			</label>
+			<label for="subject">
+				<input type="text" id="subject" ng-model="subject" placeholder="Sujet du message">
+			</label>
+			<label id="trucmuch" for="message">
+				<textarea name="" id="message" ng-model="message" placeholder="Message" rows="2"></textarea>
+			</label>
+			<a href="mailto:{{ assurmail.value }}?cc=roelens_dam@hotmail.com&amp;subject={{subject}}&amp;body={{message}}" class="sendify">Envoyer</a>
+
+		</form>
+	</div>
+</div>

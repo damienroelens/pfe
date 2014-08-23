@@ -1,0 +1,18 @@
+<div class="sousmenu">
+	<div class="polygon" ng-click="dessinShow = ! dessinShow">
+		<div class="listPoly" ng-init="dessinShow = false" ng-show="dessinShow">
+			<ul>
+				<li ng-click="addObject('voiture1')">Voiture jaune</li>
+				<li ng-click="addObject('route1')">Route droite</li>
+				<li ng-click="addObject('voiture2')">Voiture Rouge</li>
+				<li>Objet4</li>
+			</ul>
+		</div>
+	</div>
+	<div class="depla" ng-class="{actif: moving==true}" ng-click="transit()"></div>
+	<div class="agran" ng-class="{actif: scaling==true}"ng-click="transit()"></div>
+	<div class="rota" ng-click="rotePos()"></div>
+	<div class="rote" ng-click="roteNeg()"></div>
+</div>
+
+<div id="croquis"></div>

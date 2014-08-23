@@ -1,0 +1,10 @@
+<div class="bg out">
+	<div class="bgform in tpin ltin">
+		<h3>Photos de l'accident</h3>
+		<div id="photos">
+			<img src="{{photo.src}}" alt="" class="photos" style="width:{{photo.width}};height{{photo.height}}" ng-repeat="photo in photos">
+		</div>
+		<a href="" ng-click="launchPhoto()" id="camera" class="declaButton">Prendre une photo</a>
+		<a href="" ng-click="browsePhoto()" id="folder" class="declaButton">Ajouter une photo</a>
+	</div>
+</div>

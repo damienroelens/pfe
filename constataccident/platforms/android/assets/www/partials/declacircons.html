@@ -1,0 +1,35 @@
+<div class="bg out">
+	<div class="bgform in tpin ltin">
+		<h3>Circonstances de l'accident</h3>
+		<label for="injury">Est-ce qu'il y a des blessés ?<input id="injury" ng-model="checke1" type="checkbox"></label>
+		<div class="call" ng-show="checke1"><a href="tel:112">112</a></div>
+		<label for="vehicle">Autres véhicules impliquées ?<input id="vehicle" ng-model="checke2" type="checkbox"></label>
+		<label for="other">Autres dégats que des véhicules ?<input id="other" ng-model="checke3" type="checkbox"></label>
+		<label for="temoins">Y-a-t-il des témoins ?<input id="temoins" ng-model="temoin" type="checkbox"></label>
+	</div>
+</div>
+
+<div class="bg out" ng-repeat="temn in tem">
+	<div class="bgform in tpin ltin">
+			<p class="temoin">{{temn.name}}</p>
+			<p class="temoin">{{temn.adress}}</p>
+			<p class="temoin">{{temn.tele}}</p>
+			<a href="" class="deleteTemoin" ng-click="deleteMe({{temn.Uid}})">Suppression</a>
+	</div>
+</div>
+
+
+<div class="bg out" ng-show="temoin">
+	<div class="bgform in tpin ltin">
+		<label for="TemName">
+			<input id="TemName" ng-model="temname" type="text" placeholder="Nom : " />
+		</label>
+		<label for="TemSurname">
+			<input id="TemSurname" ng-model="temadress" type="text" placeholder="Adresse : " />
+		</label>
+		<label for="TemSurname">
+			<input id="TemSurname" ng-model="temsurname" type="tel" placeholder="Téléphone : " />
+		</label>
+		<a href="" class="declaButton" ng-click="addNewTem()">Ajouter un témoin</a>
+	</div>
+</div>
